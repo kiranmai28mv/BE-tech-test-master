@@ -60,4 +60,36 @@ class Subscription
      * @var \Carbon\Carbon|null
      */
     protected $nextDeliveryDate;
+
+    // MUTATOR - STATUS
+    public function setStatus($status){
+        $status = ($status == 1) ? 'Active' : (($status == 2) ? 'Cancelled' : $status);
+        $this->status = $status;
+        return $this;
+    }
+
+    public function getStatus(){
+        return $this->status;
+    }
+
+    // MUTATOR - PLAN
+    public function setPlan($plan){
+        $plan = ($plan == 1) ? 'Weekly' : (($plan == 2) ? 'Fortnightly' : $plan);
+
+        $this->plan = $plan;
+        return $this;
+    }
+
+    public function getPlan(){
+        return $this->plan;
+    }
+
+    public function setNextDeliveryDate($nextDeliveryDate){
+        $this->nextDeliveryDate = $nextDeliveryDate;
+        return $this;
+    }
+    public function getNextDeliveryDate(){
+        return $this->nextDeliveryDate;
+    }
+
 }
